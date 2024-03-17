@@ -1,4 +1,4 @@
-package com.example.AquaStorageApi;
+package com.example.Java;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
