@@ -1,6 +1,7 @@
 package com.example.Java.Entity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -38,7 +39,7 @@ public class MonthlyWaterConsumption {
     @Column(name = "agriculturalconsumption", nullable = false)
     private Double agriculturalConsumption;
     
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "territoryid", referencedColumnName = "id", insertable = false, updatable = false)
     private Territory territory;
     

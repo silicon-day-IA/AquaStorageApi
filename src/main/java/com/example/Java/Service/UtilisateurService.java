@@ -1,21 +1,26 @@
 package com.example.Java.Service;
 
+import java.util.List;
+
+import com.example.Java.Entity.Utilisateur;
+import com.example.Java.Utils.WebappConfig.Response;
+
 public interface UtilisateurService {
 	
-	public void addUtilisateur();
+	public Response<Boolean> addUtilisateur();
 
-	public void deleteUtilisateur();
+	public Response<Boolean> deleteUtilisateur();
 
-	public void updateUtilisateur();
+	public Response<Boolean> updateUtilisateur();
 
-	public void getUtilisateur();
+	public Response<Utilisateur> getUtilisateur();
 
-	public void getAllUtilisateurById();
+	public Response<List<Boolean>> getAllUtilisateurByCreatedDate();
 
-	public void getUtilisateurByNom();
+	public Response<Utilisateur> getUtilisateurByNom();
 
-	public void getUtilisateurByMail();
+	public Response<Utilisateur> getUtilisateurByMail();
 
-	public void getUtilisateurByPassword();
+	public Response<Utilisateur> getUtilisateurByPassword();
 
 }

@@ -35,13 +35,13 @@ public class Utilisateur {
     @Column(name = "email", nullable = false, unique = true)
     private String email;
     
-    @Column(name = "password")
+    @Column(name = "password", nullable = false)
     private String password; // Encrypted password will be stored
     
     @Column(name = "createddate", nullable = false)
     private LocalDateTime createdDate;
     
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "territoryid", referencedColumnName = "id", insertable = false, updatable = false)
     private Territory territory;
 }
