@@ -11,21 +11,21 @@ import com.example.Java.Entity.Territory;
 @Repository
 public interface TerritoryRepo extends JpaRepository<Territory, Long>{
 	
-	@Query("SELECT t FROM Territory t WHERE t.id = :idLong")
-	public Territory findByTerritoryId(Long idLong);
+	//@Query("SELECT t FROM Territory t WHERE t.id = :idLong")
+	//public Territory findById(Long idLong);
 	
-	@Query("SELECT t FROM Territory t WHERE t.territoryName = :territoryName")
-	public Territory findByTerritoryName(String territoryName);
+	//@Query("SELECT t FROM Territory t WHERE t.territoryName = :territoryName")
+	//public Territory findByTerritoryName(String territoryName);
 	
-	@Query("SELECT t FROM Territory t WHERE t.territoryName = :territoryName")
-	public Territory findByTerritoryNameIgnoreCase(String territoryName);
+	//@Query("SELECT t FROM Territory t WHERE t.territoryName = :territoryName")
+	//public Territory findByTerritoryNameIgnoreCase(String territoryName);
 	
-	@Query("SELECT t FROM Territory t LEFT JOIN FETCH t.DailyWaterConsumption WHERE t.id = :id")
-	public Territory findByIdPlusDailyWaterConsumption(Long id);
+	//@Query("SELECT t FROM Territory t LEFT JOIN FETCH t.DailyWaterConsumption WHERE t.id = :id")
+	//public Territory findByIdPlusDailyWaterConsumption(Long id);
 	
-	@Query("SELECT t FROM Territory t LEFT JOIN FETCH t.MonthlyWaterConsumption WHERE t.id = :id")
-	public Territory findByIdPlusMonthlyWaterConsumption(Long id);
+	//@Query("SELECT t FROM Territory t LEFT JOIN FETCH t.MonthlyWaterConsumption WHERE t.id = :id")
+	//public Territory findByIdPlusMonthlyWaterConsumption(Long id);
 	
-	@Query("SELECT t FROM Territory t LEFT JOIN FETCH t.WaterSource WHERE t.id = :id")
-	public Territory findByIdPlusWaterSource(Long id);
+	//@Query("SELECT t FROM Territory t LEFT JOIN FETCH t.WaterSource WHERE t.id = :id")
+	//public Territory findByIdPlusWaterSource(Long id);
 }
