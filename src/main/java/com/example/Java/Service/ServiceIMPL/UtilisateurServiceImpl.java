@@ -24,7 +24,8 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class UtilisateurServiceImpl implements UtilisateurService{
 	
-	PasswordUtils passwordUtils = new PasswordUtils();
+	@Autowired
+	private PasswordUtils passwordUtils;
 	
 	@Autowired
 	private UtilisateurRepo utilisateurRepo;

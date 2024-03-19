@@ -172,4 +172,23 @@ public class Utilisateur {
 		this.lastConnection = lastConnection;
 	}
 	
+	public Integer getRoleId() {
+		return roleId;
+	}
+	
+	public void setRoleId(Integer roleId) {
+		this.roleId = roleId;
+	}
+
+
+
+	@Override
+	public String toString() {
+		return "Utilisateur [id=" + id + ", name=" + name + ", territoryId=" + territoryId + ", email=" + email
+				+ ", password=" + password + ", createdDate=" + createdDate + ", lastConnection=" + lastConnection
+				+ ", roleId=" + roleId + ", role=" + role + ", territory=" + territory + "]";
+	}
+	
+	
+	
 }
