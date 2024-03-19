@@ -1,20 +1,25 @@
 package com.example.Java.Service;
 
+import java.util.List;
+
+import com.example.Java.Entity.Territory;
+import com.example.Java.Utils.WebappConfig.Response;
+
 public interface TerritoryService {
 	
-	public void saveTerritory();
+	public Response<Boolean> saveTerritory();
 	
-	public void updateTerritory();
+	public Response<Boolean> updateTerritory();
 	
-	public void deleteTerritory();
+	public Response<Boolean> deleteTerritory();
 	
-	public void getTerritory();
+	public Response<Territory> getTerritory();
 	
-	public void getAllTerritory();
+	public Response<List<Territory>> getAllTerritory();
 	
-	public void getTerritoryByRegion();
+	public Response<Territory> getTerritoryByName();
 	
-	public void getTerritoryByUtilisateur();
+	public Response<Territory> getTerritoryByUtilisateur();
 	
 	
 

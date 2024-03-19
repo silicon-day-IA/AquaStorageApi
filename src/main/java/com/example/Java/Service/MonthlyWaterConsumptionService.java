@@ -1,9 +1,12 @@
 package com.example.Java.Service;
 
+import com.example.Java.Entity.MonthlyWaterConsumption;
+import com.example.Java.Utils.WebappConfig.Response;
+
 public interface MonthlyWaterConsumptionService {
 	
-	public void insertMonthlyWaterConsumption();
+	public Response<Boolean> insertMonthlyWaterConsumption();
 	
-	public double getMonthlyWaterConsumption();
+	public Response<MonthlyWaterConsumption> getMonthlyWaterConsumption();
 
 }

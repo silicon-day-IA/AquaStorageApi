@@ -1,21 +1,23 @@
 package com.example.Java.Service;
 
+import java.time.LocalDateTime;
+import java.util.List;
+
+import com.example.Java.Entity.Utilisateur;
+import com.example.Java.Utils.WebappConfig.Response;
+
 public interface UtilisateurService {
 	
-	public void addUtilisateur();
+	public Response<Boolean> addUtilisateur(Utilisateur utilisateur);
 
-	public void deleteUtilisateur();
+	public Response<Boolean> deleteUtilisateur(Utilisateur utilisateur);
 
-	public void updateUtilisateur();
+	public Response<Boolean> updateUtilisateur(Utilisateur utilisateur);
 
-	public void getUtilisateur();
+	public Response<Utilisateur> getUtilisateur(Long id);
 
-	public void getAllUtilisateurById();
+	public Response<Utilisateur> getUtilisateurByNom(String nom);
 
-	public void getUtilisateurByNom();
-
-	public void getUtilisateurByMail();
-
-	public void getUtilisateurByPassword();
+	public Response<Utilisateur> getUtilisateurByMail(String mail);
 
 }
