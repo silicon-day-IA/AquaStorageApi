@@ -11,7 +11,7 @@ import com.example.Java.Entity.Territory;
 @Repository
 public interface TerritoryRepo extends JpaRepository<Territory, Long>{
 	
-	@Query("SELECT t FROM Territory t WHERE t.territoryId = :idLong")
+	@Query("SELECT t FROM Territory t WHERE t.id = :idLong")
 	public Territory findByTerritoryId(Long idLong);
 	
 	@Query("SELECT t FROM Territory t WHERE t.territoryName = :territoryName")

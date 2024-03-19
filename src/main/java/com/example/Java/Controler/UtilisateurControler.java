@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.Java.Dto.Utilisateur.CreateUser;
 import com.example.Java.Entity.Utilisateur;
 import com.example.Java.Service.UtilisateurService;
 import com.example.Java.Service.ServiceIMPL.UtilisateurServiceImpl;
@@ -31,7 +32,11 @@ public class UtilisateurControler {
 	private UtilisateurServiceImpl utilisateurServiceImpl;
 	
 	@PostMapping("/Register")
-	public Response<Boolean> register(@RequestBody Utilisateur utilisateur) {
+	public Response<Boolean> register(@RequestBody CreateUser user) {
+		if (user == null) {
+			return Response.failedResponse("User null");
+		}
+		Utilisateur utilisateur = new Utilisateur(user.getNom(), user.getMail(), user.getPassword(), user.getRole());
 		return utilisateurServiceImpl.addUtilisateur(utilisateur);
 	}
 	
