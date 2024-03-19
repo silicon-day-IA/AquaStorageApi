@@ -18,6 +18,8 @@ import lombok.Setter;
 
 @Data
 @Entity
+@AllArgsConstructor
+@Getter@Setter
 @Table(name = "territory")
 public class Territory {
 
@@ -34,7 +36,7 @@ public class Territory {
     @Column(name = "population", nullable = false)
     private Integer population;
     
-    @OneToMany(mappedBy = "territory",fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "territory",fetch = FetchType.EAGER)
     private List<WaterSource> waterSources;
     
     @OneToMany(mappedBy = "territory",fetch = FetchType.LAZY)

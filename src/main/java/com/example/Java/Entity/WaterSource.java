@@ -13,10 +13,15 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 @Data
 @Entity
+@AllArgsConstructor
+@Getter@Setter
 @Table(name = "watersource")
 public class WaterSource {
     @Id
@@ -41,11 +46,11 @@ public class WaterSource {
     @Column(name = "latitude", nullable = false)
     private Double latitude;
     
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "territoryid", referencedColumnName = "id", insertable = false, updatable = false)
     private Territory territory;
     
-    @OneToMany(mappedBy = "waterSource",fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "waterSource",fetch = FetchType.EAGER)
     private List<WaterStock> waterStocks;
 }
 
