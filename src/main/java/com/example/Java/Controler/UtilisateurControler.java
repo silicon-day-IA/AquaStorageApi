@@ -11,8 +11,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.Java.Dto.Utilisateur.CreateUser;
 import com.example.Java.Dto.Utilisateur.LoginUser;
+import com.example.Java.Entity.Territory;
 import com.example.Java.Entity.Utilisateur;
+import com.example.Java.Service.CommuneService;
+import com.example.Java.Service.TerritoryService;
 import com.example.Java.Service.UtilisateurService;
+import com.example.Java.Service.ServiceIMPL.CommuneServiceImpl;
+import com.example.Java.Service.ServiceIMPL.TerritoryServiceImpl;
 import com.example.Java.Service.ServiceIMPL.UtilisateurServiceImpl;
 import com.example.Java.Utils.PasswordUtils;
 import com.example.Java.Utils.WebappConfig.Response;
@@ -38,14 +43,29 @@ public class UtilisateurControler {
 	private UtilisateurService utilisateurService;
 	
 	@Autowired
+	private TerritoryService territoryService;
+	
+	@Autowired
 	private UtilisateurServiceImpl utilisateurServiceImpl;
+	
+	@Autowired
+	private TerritoryServiceImpl territoryServiceImpl;
+	
+	@Autowired
+	private CommuneService communeService;
+	
+	@Autowired
+	private CommuneServiceImpl communeServiceImpl;
 	
 	@PostMapping("/Register")
 	public Response<Boolean> register(@RequestBody CreateUser user) {
 		if (user == null) {
 			return Response.failedResponse("User null");
 		}
-		Utilisateur utilisateur = new Utilisateur(user.getNom(), user.getMail(), user.getPassword(), user.getRole());
+		Territory territory = new Territory(user.getTerritory(), communeServiceImpl.getCommuneByCodePostal(user.getInsee()).getData());
+		System.out.println("Territory created : " + territory.toString());
+		Territory territory2 =  territoryServiceImpl.saveTerritory(territory).getData();
+		Utilisateur utilisateur = new Utilisateur(user.getNom(), user.getMail(), user.getPassword(), user.getRole(),territory2);
 		System.out.println("User created : " + utilisateur.toString());
 		return utilisateurServiceImpl.addUtilisateur(utilisateur);
 	}
@@ -61,7 +81,8 @@ public class UtilisateurControler {
 		}
 		return Response.failedResponse("Login failed : wrong email");
 	}
-
+	
+    
 	
 	
 	

@@ -34,9 +34,6 @@ public class Utilisateur {
     @Column(name = "name", nullable = false)
     private String name;
     
-    @Column(name = "territoryid")
-    private Integer territoryId;
-    
     @Column(name = "email", nullable = false, unique = true)
     private String email;
     
@@ -57,7 +54,7 @@ public class Utilisateur {
     private Role role;
     
     @OneToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "territoryid", referencedColumnName = "id", insertable = false, updatable = false)
+    @JoinColumn(name = "territoryid", referencedColumnName = "id")
     private Territory territory;
     
 	public Utilisateur() {
@@ -78,15 +75,14 @@ public class Utilisateur {
 		this.territory = territory;
 	}
 	
-	public Utilisateur(String name, Integer territoryId, String email, String password, LocalDateTime createdDate) {
+	public Utilisateur(String name, String email, String password, LocalDateTime createdDate) {
 		this.name = name;
-		this.territoryId = territoryId;
 		this.email = email;
 		this.password = password;
 		this.createdDate = createdDate;
 	}
 	
-	public Utilisateur(String name, String email, String password,String role) {
+	public Utilisateur(String name, String email, String password,String role,Territory territory) {
 		super();
 		this.name = name;
 		this.createdDate = LocalDateTime.now();
@@ -98,6 +94,7 @@ public class Utilisateur {
 		}
 		this.email = email;
 		this.password = password;
+		this.territory=territory;
 	}
 
 	public Long getId() {
@@ -116,13 +113,6 @@ public class Utilisateur {
 		this.name = name;
 	}
 
-	public Integer getTerritoryId() {
-		return territoryId;
-	}
-
-	public void setTerritoryId(Integer territoryId) {
-		this.territoryId = territoryId;
-	}
 
 	public String getEmail() {
 		return email;
@@ -184,7 +174,7 @@ public class Utilisateur {
 
 	@Override
 	public String toString() {
-		return "Utilisateur [id=" + id + ", name=" + name + ", territoryId=" + territoryId + ", email=" + email
+		return "Utilisateur [id=" + id + ", name=" + name + ", territoryId=" +", email=" + email
 				+ ", password=" + password + ", createdDate=" + createdDate + ", lastConnection=" + lastConnection
 				+ ", roleId=" + roleId + ", role=" + role + ", territory=" + territory + "]";
 	}
