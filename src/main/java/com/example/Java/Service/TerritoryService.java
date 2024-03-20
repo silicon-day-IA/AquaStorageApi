@@ -7,17 +7,17 @@ import com.example.Java.Utils.WebappConfig.Response;
 
 public interface TerritoryService {
 	
-	public Response<Boolean> saveTerritory();
+	public Response<Territory> saveTerritory(Territory territory);
 	
-	public Response<Boolean> updateTerritory();
+	public Response<Boolean> updateTerritory(Territory territory);
 	
-	public Response<Boolean> deleteTerritory();
+	public Response<Boolean> deleteTerritory(Long id);
 	
-	public Response<Territory> getTerritory();
+	public Response<Territory> getTerritory(Long id);
 	
 	public Response<List<Territory>> getAllTerritory();
 	
-	public Response<Territory> getTerritoryByName();
+	public Response<Territory> getTerritoryByName(String name);
 	
 	public Response<Territory> getTerritoryByUtilisateur();
 	

@@ -7,15 +7,19 @@ public class CreateUser {
 	private String mail;
 	private String password;
 	private String role;
+	private String territory;
+	private int insee;
 
 	public CreateUser() {
 	}
 
-	public CreateUser(String nom, String mail, String password, String role) {
+	public CreateUser(String nom, String mail, String password, String role, String territory, int insee) {
 		this.nom = nom;
 		this.mail = mail;
 		this.password = password;
 		this.role = role;
+		this.territory = territory;
+		this.insee = insee;
 	}
 
 	public String getNom() {
@@ -48,6 +52,22 @@ public class CreateUser {
 
 	public void setRole(String role) {
 		this.role = role;
+	}
+	
+	public String getTerritory() {
+		return territory;
+	}
+	
+	public void setTerritory(String territory) {
+		this.territory = territory;
+	}
+	
+	public int getInsee() {
+		return insee;
+	}
+	
+	public void setInsee(int insee) {
+		this.insee = insee;
 	}
 
 }
